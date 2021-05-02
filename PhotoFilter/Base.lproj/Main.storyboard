@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="672"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xae-ty-f4x">
-                                <rect key="frame" x="103.5" y="810" width="207" height="40"/>
+                                <rect key="frame" x="103.5" y="792" width="207" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eDn-sZ-sCs"/>
                                 </constraints>
@@ -35,7 +35,7 @@
                             <constraint firstItem="xae-ty-f4x" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BpX-be-2NS"/>
                             <constraint firstItem="61h-wf-gqd" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="PsP-qd-ZGm"/>
                             <constraint firstItem="61h-wf-gqd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="R7s-kx-sYf"/>
-                            <constraint firstItem="xae-ty-f4x" firstAttribute="top" secondItem="61h-wf-gqd" secondAttribute="bottom" constant="50" id="uxe-9B-cos"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xae-ty-f4x" secondAttribute="bottom" constant="30" id="Z5q-WI-OVL"/>
                             <constraint firstItem="xae-ty-f4x" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="wKc-IS-42u"/>
                             <constraint firstItem="61h-wf-gqd" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="zR0-W8-d5u"/>
                         </constraints>
