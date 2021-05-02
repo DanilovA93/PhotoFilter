@@ -28,15 +28,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func applyFilterAction(_ sender: Any) {
-        guard let image = photo.image else {
+        guard let sourceImage = photo.image else {
             return
         }
         
-        FilterService().applyFilter(to: image) { filteredImage in
+        FilterService().applyFilter(to: sourceImage).subscribe(onNext: { filteredImage in
             DispatchQueue.main.async {
                 self.photo.image = filteredImage
             }
-        }
+        }).disposed(by: disposeBag)
     }
     
     private func updateUI(with image: UIImage) {
