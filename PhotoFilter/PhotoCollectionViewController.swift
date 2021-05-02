@@ -63,11 +63,13 @@ class PhotoCollectionViewController: UICollectionViewController {
                 return
             }
             
-            let isDegradedPhoto = info["HPImageResultIsDegradedKey"] as! Bool
+            let isDegradedPhoto = info["PHImageResultIsDegradedKey"] as! Bool
             
-            if let photo = photo {
-                self?.selectedPhotoSubject.onNext(photo)
-                self?.dismiss(animated: true, completion: nil)
+            if !isDegradedPhoto {
+                if let photo = photo {
+                    self?.selectedPhotoSubject.onNext(photo)
+                    self?.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }

@@ -81,9 +81,9 @@
 				8F9EC555263E989C000643F0 /* Main.storyboard */,
 				8F9EC553263E989C000643F0 /* ViewController.swift */,
 				8F9EC564263E9A2A000643F0 /* PhotoCollectionViewController.swift */,
+				8F520C8C263F39C7009062B9 /* PhotoCollectionViewCell.swift */,
 				8F9EC558263E989E000643F0 /* Assets.xcassets */,
 				8F9EC55D263E989E000643F0 /* Info.plist */,
-				8F520C8C263F39C7009062B9 /* PhotoCollectionViewCell.swift */,
 			);
 			path = PhotoFilter;
 			sourceTree = "<group>";
