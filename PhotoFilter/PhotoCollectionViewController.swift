@@ -1,11 +1,17 @@
 import UIKit
 import Photos
+import RxSwift
 
 private let reuseIdentifier = "Cell"
 
 class PhotoCollectionViewController: UICollectionViewController {
     
-    private var images = [PHAsset]()
+    private let selectedPhotoSubject = PublishSubject<UIImage>()
+    private var photos = [PHAsset]()
+    
+    var selectedPhoto: Observable<UIImage> {
+        return selectedPhotoSubject.asObserver()
+    }
     
     //MARK: - lifecycle funcs
 
@@ -22,7 +28,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.images.count
+        return self.photos.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -31,7 +37,7 @@ class PhotoCollectionViewController: UICollectionViewController {
             fatalError("PhotoCollectionViewCell not found")
         }
         
-        let asset = self.images[indexPath.row]
+        let asset = self.photos[indexPath.row]
         let manager = PHImageManager.default()
         
         manager.requestImage(for: asset,
@@ -46,6 +52,26 @@ class PhotoCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let selectedAssets = self.photos[indexPath.row]
+        PHImageManager.default().requestImage(for: selectedAssets,
+                                              targetSize: CGSize(width: 300, height: 300),
+                                              contentMode: .aspectFit,
+                                              options: nil) { [weak self] (photo, info) in
+            guard let info = info else {
+                return
+            }
+            
+            let isDegradedPhoto = info["HPImageResultIsDegradedKey"] as! Bool
+            
+            if let photo = photo {
+                self?.selectedPhotoSubject.onNext(photo)
+                self?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     //MARK: - private funcs
     
     private func populatePhotos() {
@@ -55,10 +81,10 @@ class PhotoCollectionViewController: UICollectionViewController {
                 let assets = PHAsset.fetchAssets(with: PHAssetMediaType.image,
                                                  options: nil)
                 assets.enumerateObjects { (object, count, stop) in
-                    self?.images.append(object)
+                    self?.photos.append(object)
                 }
                 
-                self?.images.reverse()
+                self?.photos.reverse()
                 
                 DispatchQueue.main.async {
                     self?.collectionView.reloadData()
