@@ -6,10 +6,10 @@ class ViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     @IBOutlet weak var photo: UIImageView!
+    @IBOutlet weak var applyFilterButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -21,8 +21,27 @@ class ViewController: UIViewController {
         }
         
         photosCVC.selectedPhoto.subscribe(onNext: { [weak self] photo in
-            self?.photo.image = photo
+            DispatchQueue.main.async {
+                self?.updateUI(with: photo)
+            }
         }).disposed(by: disposeBag)
+    }
+    
+    @IBAction func applyFilterAction(_ sender: Any) {
+        guard let image = photo.image else {
+            return
+        }
+        
+        FilterService().applyFilter(to: image) { filteredImage in
+            DispatchQueue.main.async {
+                self.photo.image = filteredImage
+            }
+        }
+    }
+    
+    private func updateUI(with image: UIImage) {
+        photo.image = image
+        applyFilterButton.isHidden = false
     }
 }
 
