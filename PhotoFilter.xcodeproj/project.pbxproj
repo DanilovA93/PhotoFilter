@@ -13,6 +13,7 @@
 		8F9EC557263E989C000643F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F9EC555263E989C000643F0 /* Main.storyboard */; };
 		8F9EC559263E989E000643F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F9EC558263E989E000643F0 /* Assets.xcassets */; };
 		8F9EC55C263E989E000643F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F9EC55A263E989E000643F0 /* LaunchScreen.storyboard */; };
+		8F9EC565263E9A2A000643F0 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9EC564263E9A2A000643F0 /* PhotoCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8F9EC558263E989E000643F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F9EC55B263E989E000643F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F9EC55D263E989E000643F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F9EC564263E9A2A000643F0 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +60,11 @@
 			children = (
 				8F9EC54F263E989C000643F0 /* AppDelegate.swift */,
 				8F9EC551263E989C000643F0 /* SceneDelegate.swift */,
-				8F9EC553263E989C000643F0 /* ViewController.swift */,
-				8F9EC555263E989C000643F0 /* Main.storyboard */,
-				8F9EC558263E989E000643F0 /* Assets.xcassets */,
 				8F9EC55A263E989E000643F0 /* LaunchScreen.storyboard */,
+				8F9EC555263E989C000643F0 /* Main.storyboard */,
+				8F9EC553263E989C000643F0 /* ViewController.swift */,
+				8F9EC564263E9A2A000643F0 /* PhotoCollectionViewController.swift */,
+				8F9EC558263E989E000643F0 /* Assets.xcassets */,
 				8F9EC55D263E989E000643F0 /* Info.plist */,
 			);
 			path = PhotoFilter;
@@ -140,6 +143,7 @@
 				8F9EC554263E989C000643F0 /* ViewController.swift in Sources */,
 				8F9EC550263E989C000643F0 /* AppDelegate.swift in Sources */,
 				8F9EC552263E989C000643F0 /* SceneDelegate.swift in Sources */,
+				8F9EC565263E9A2A000643F0 /* PhotoCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
